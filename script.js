@@ -1,7 +1,17 @@
 document.getElementById('vat-form').addEventListener('submit', function(event) {
     event.preventDefault();
 
-    const totalAmount = parseFloat(document.getElementById('total-amount').value);
+    // Get the input value as a string
+    const totalAmountStr = document.getElementById('total-amount').value;
+
+    // Debugging: Print the input value to the console
+    console.log('Input value:', totalAmountStr);
+
+    // Replace comma with dot if needed (common in some locales)
+    const totalAmount = parseFloat(totalAmountStr.replace(',', '.'));
+
+    // Debugging: Print the parsed float value to the console
+    console.log('Parsed value:', totalAmount);
 
     // Validate input
     if (isNaN(totalAmount) || totalAmount <= 0) {
